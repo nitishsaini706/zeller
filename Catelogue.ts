@@ -1,5 +1,6 @@
 import { PricingRule ,Product, products, pricingRules} from "./interfaces/Interface";
 
+
 class Checkout {
     private cart: string[];
     private pricingRules: PricingRule[];
@@ -57,15 +58,29 @@ class Checkout {
 
 
     private findPricingRule(sku: string): PricingRule | undefined {
-        return this.pricingRules.find(rule => rule.sku === sku);
+        // console.log('this.pricingRules', this.pricingRules)
+
+        // return this.pricingRules.find(rule => rule.sku === sku);
+
+        for (const rule of this.pricingRules) {
+            if (rule.sku === sku) {
+                return rule;
+            }
+        }
+        return undefined;
     }
-
-
+    
     private findProductPrice(sku: string): number {
-        const product = products.find(p => p.sku === sku);
-        return product ? product.price : 0;
-    }
+        
+        // const product = products.find(p => p.sku === sku);
 
+        for (const product of products) {
+            if (product.sku === sku) {
+                return product.price;
+            }
+        }
+        return 0; 
+    }
 
     private applyDiscountRule(sku: string, count: number): number {
         //for now i've hardcoded this for atv 

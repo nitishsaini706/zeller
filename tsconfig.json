@@ -1,8 +1,11 @@
 {
     "compilerOptions": {
-      "module": "commonjs",
-      "target": "es6",
-      "esModuleInterop": true,
-      "outDir": "./dist"
+      "target": "es5",      /* Or higher depending on your needs */
+      "lib": ["es2015"],    /* Include ES2015 library */
+      "module": "commonjs", /* Or other module system you are using */
+      "strict": true,
+      "esModuleInterop": true
+      // Other options as needed
     }
   }
+  
