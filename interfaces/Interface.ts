@@ -22,9 +22,3 @@ export interface PricingRule {
     bulkPrice?: number;
 }
 
-// our sales person can define rules as he's indecisive
-
-export const pricingRules: PricingRule[] = [
-    { sku: 'atv', type: 'discount' },
-    { sku: 'ipd', type: 'bulk', bulkQuantity: 4, bulkPrice: 499.99 }
-];

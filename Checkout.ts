@@ -1,7 +1,7 @@
-import { PricingRule ,Product, products, pricingRules} from "./interfaces/Interface";
+import { PricingRule ,Product, products} from "./interfaces/Interface";
 
 
-class Checkout {
+export default class Checkout {
     private cart: string[];
     private pricingRules: PricingRule[];
 
@@ -71,7 +71,7 @@ class Checkout {
     }
     
     private findProductPrice(sku: string): number {
-        
+
         // const product = products.find(p => p.sku === sku);
 
         for (const product of products) {
@@ -98,27 +98,3 @@ class Checkout {
         return count * this.findProductPrice(sku);
     }
 }
-
-// testing the logic
-
-
-const co = new Checkout(pricingRules);
-
-co.scan('atv');
-co.scan('atv');
-co.scan('atv');
-co.scan('vga');
-
-console.log(`Total expected: $${co.total().toFixed(2)}`);
-
-
-const co2 = new Checkout(pricingRules);
-
-co2.scan('atv');
-co2.scan('ipd');
-co2.scan('ipd');
-co2.scan('atv');
-co2.scan('ipd');
-co2.scan('ipd');
-co2.scan('ipd');
-console.log(`Total expected: $${co2.total().toFixed(2)}`);

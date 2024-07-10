@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc Catelogue.ts && node Catelogue.js"
+    "start": "tsc tests.ts && node tests.js"
   },
   "author": "",
   "license": "ISC",
